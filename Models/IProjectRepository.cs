@@ -3,11 +3,9 @@
 namespace agent_project.Models
 {
     public interface IProjectRepository {
-        void Add(ProjectItem item);
         IEnumerable<ProjectItem> GetAll();
-        ProjectItem Find(string identifier);
-        ProjectItem GetByURL(string url);
-        ProjectItem GetByName(string name);
+        ProjectItem Find(string name);
+        void Add(ProjectItem item);
         void Remove(string identifier);
         void Update(ProjectItem item);
     }

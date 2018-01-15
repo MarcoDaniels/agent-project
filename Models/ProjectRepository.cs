@@ -45,13 +45,6 @@ namespace agent_project.Models
             return _context.ProjectItems.FirstOrDefault(t => t.Name == name);
         }
 
-        public ProjectItem GetByURL(string url) {
-            return _context.ProjectItems.FirstOrDefault(t => t.Url == url);
-        }
-
-        public ProjectItem GetByName(string name) {
-            return _context.ProjectItems.FirstOrDefault(t => t.Name == name);
-        }
         public void Remove(string name) {
             var entity = _context.ProjectItems.First(t => t.Name== name);
             _context.ProjectItems.Remove(entity);

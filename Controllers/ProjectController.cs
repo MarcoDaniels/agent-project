@@ -12,17 +12,26 @@ namespace agent_project.Controllers
         // GET
         private readonly IProjectRepository _projectRepository;
 
+        /**
+         * constructor
+         */
         public ProjectController(IProjectRepository projectRepository) {
             _projectRepository = projectRepository;
         }
         
-        // GET: api/
+        /**
+         * Returns all occourences of projects
+         * GET: api/project/
+         */
         [HttpGet]
         public IEnumerable<ProjectItem> GetAll() {
             return _projectRepository.GetAll().ToList();
         }
 
-        // GET api/5
+        /**
+         * Returns specific project
+         * GET api/project/test
+         */
         [HttpGet("{name}", Name = "GetProject")]
         public IActionResult GetByName(string name) {
             var item = _projectRepository.Find(name);
@@ -32,16 +41,25 @@ namespace agent_project.Controllers
             return new ObjectResult(item);
         }
 
-        // POST api/values
+        // POST api/project/
         [HttpPost]
-        public void Post([FromBody]string value) { }
+        public void PostProject(ProjectItem value)
+        {
+            // TODO: implement
+        }
 
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value) { }
+        // PUT api/project/test/
+        [HttpPut("{name}")]
+        public void PutProject(string name, ProjectItem value)
+        {
+            // TODO: implement
+        }
 
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id) { }
+        // DELETE api/project/test
+        [HttpDelete("{name}")]
+        public void DeleteProject(int name)
+        {
+            // TODO: implement
+        }
     }
 }
