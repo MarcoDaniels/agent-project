@@ -12,17 +12,6 @@ _agent-project is the agent responsible for retrieving all projects information 
 
 agent-project is part of [my little virtual friend](http://mylittlevirtualfriend.com) setup.
 
-## deploy to appharbor
-```
-dotnet publish
-```
-```
-cd bin/Debug/netcoreapp2.0/publish
-```
-```
-appharbor deploy -a <project-name>
-```
-
 ## todo
 - [x] wakeup endpoint
 - [ ] setup authentication for post/put/delete endpoints
