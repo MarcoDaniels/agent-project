@@ -1,12 +1,11 @@
-﻿using System.Collections.Generic;
-using agent_project.Models;
+﻿using agent_project.Models;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 
 namespace agent_project.Controllers
 {
     [Produces("application/json")]
-    [Route("api/[controller]")]
+    [Route("agent/[controller]")]
     public class ProjectController : Controller
     {
         // GET
@@ -21,41 +20,43 @@ namespace agent_project.Controllers
         
         /**
          * Returns all occourences of projects
-         * GET: api/project/
+         * GET: agent/project/
          */
         [HttpGet]
-        public IEnumerable<ProjectItem> GetAll() {
-            return _projectRepository.GetAll().ToList();
+        public IActionResult GetAll()
+        {
+            return Ok(_projectRepository.GetAll().ToList());
         }
 
         /**
          * Returns specific project
-         * GET api/project/test
+         * GET agent/project/test
          */
         [HttpGet("{name}", Name = "GetProject")]
-        public IActionResult GetByName(string name) {
+        public IActionResult GetByName(string name) 
+        {
             var item = _projectRepository.Find(name);
             if (item == null) {
                 return NotFound();
             }
-            return new ObjectResult(item);
+            return Ok(item);
         }
 
-        // POST api/project/
+        // POST agent/project/
         [HttpPost]
         public void PostProject(ProjectItem value)
         {
             // TODO: implement
         }
 
-        // PUT api/project/test/
+        // PUT agent/project/test/
         [HttpPut("{name}")]
         public void PutProject(string name, ProjectItem value)
         {
             // TODO: implement
         }
 
-        // DELETE api/project/test
+        // DELETE agent/project/test
         [HttpDelete("{name}")]
         public void DeleteProject(int name)
         {

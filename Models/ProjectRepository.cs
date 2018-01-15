@@ -13,7 +13,7 @@ namespace agent_project.Models
             if (!_context.ProjectItems.Any()) {
                 // TODO: add all projects and information
                 Add(new ProjectItem {
-                    Id = "joyfultalks.com",
+                    Id = "1",
                     Name = "joyful talks",
                     Url = "http://joyfultalks.com",
                     ReleaseDate = "June 2016",
@@ -22,7 +22,7 @@ namespace agent_project.Models
                 });
 
                 Add(new ProjectItem {
-                    Id = "marijose.pt",
+                    Id = "2",
                     Name = "Cerejas Mari'José",
                     Url = "http://marijose.pt",
                     ReleaseDate = "May 2014",
