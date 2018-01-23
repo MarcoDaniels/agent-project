@@ -8,18 +8,13 @@ namespace agent_project.Controllers
     [Route("agent/[controller]")]
     public class ProjectController : Controller
     {
-        // GET
         private readonly IProjectRepository _projectRepository;
 
-        /**
-         * constructor
-         */
         public ProjectController(IProjectRepository projectRepository) {
             _projectRepository = projectRepository;
         }
         
         /**
-         * Returns all occourences of projects
          * GET: agent/project/
          */
         [HttpGet]
@@ -29,8 +24,7 @@ namespace agent_project.Controllers
         }
 
         /**
-         * Returns specific project
-         * GET agent/project/test
+         * GET agent/project/{name}
          */
         [HttpGet("{name}", Name = "GetProject")]
         public IActionResult GetByName(string name) 

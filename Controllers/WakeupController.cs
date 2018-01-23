@@ -8,12 +8,8 @@ namespace agent_project.Controllers
     [Route("agent/[controller]")]
     public class WakeupController : Controller
     {
-        // GET
         private readonly IProjectRepository _projectRepo;
 
-        /**
-         * constructor
-         */
         public WakeupController(IProjectRepository projectRepo) {
             _projectRepo = projectRepo;
         }
@@ -27,18 +23,34 @@ namespace agent_project.Controllers
             var result = new WakeupStatus
             {
                 Awake = true,
+                Options = new []{
+                    new Options
+                    {
+                        Type = "info",
+                        Field = "name"
+                    }, 
+                    new Options
+                    {
+                        Type = "open",
+                        Field = "name"
+                    }
+                },
                 CountProjects = _projectRepo.GetAll().Count()
             };
 
             return Ok(result);
         }
         
-        /**
-         * Wakeup status structure
-         */
+        private class Options
+        {
+            public string Type;
+            public string Field;
+        }
+        
         private class WakeupStatus
         {
             public bool Awake;
+            public Options[] Options;
             public int CountProjects;
         }
     }

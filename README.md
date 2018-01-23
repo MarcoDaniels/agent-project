@@ -6,8 +6,7 @@ _agent-project is the agent responsible for retrieving all projects information 
 ```
 /agent/project/,
 /agent/project/{name},
-/agent/wakeup,
-/agent/help
+/agent/wakeup
 ```
 
 agent-project is part of [my little virtual friend](http://mylittlevirtualfriend.com) setup.
